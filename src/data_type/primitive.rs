@@ -1,6 +1,7 @@
+/// primitive data types
 use typename::TypeName;
 
-fn main() {
+pub fn primitives() {
     // vars can be type annotated.
     let logical: bool = true;
     println!("type of var logical {} is {}", logical, logical.type_name_of());
@@ -33,5 +34,5 @@ fn main() {
     // vars can be overwritten with shadowing.
     let mutable = true;
     println!("i32 type is {}", std::any::type_name::<i32>());
-    println!("type of var mutable {} is {}", mutable, mutable.type_name_of())
+    println!("type of var mutable {} is {}", mutable, mutable.type_name_of());
 }

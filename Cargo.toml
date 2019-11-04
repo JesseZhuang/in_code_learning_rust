@@ -1,3 +1,7 @@
+# A package is one or more crates that provide a set of functionality.
+# A crate is a binary or library.
+# A package must contain zero or one library crates, and no more.
+# can contain as many binary crates as you’d like, but it must contain at least one crate (either library or binary).
 [package]
 name = "in_code_learning_rust"
 version = "0.1.0"
