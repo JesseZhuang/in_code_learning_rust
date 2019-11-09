@@ -1,3 +1,9 @@
+extern crate in_code_learning_rust;
+use in_code_learning_rust::SEPARATOR;
+
+//fmt::Debug: Uses the {:?} marker. Format text for debugging purposes.
+//fmt::Display: Uses the {} marker. Format text in a more elegant, user friendly fashion.
+// Implementing the fmt::Display trait automatically implements the ToString trait.
 fn main() {
     // Arguments will be stringified.
     // Without a suffix, 31 becomes an i32. Change by providing a suffix.
@@ -26,4 +32,29 @@ fn main() {
     // the trait `std::fmt::Display` is not implemented for `main::Structure`
     // println!("This struct `{}` won't print...", Structure(3));
     // FIXME ^ Comment out this line.
+    let pi = 3.1415926;
+    println!("{pi} with 3 digits is {pi:.3}", pi=pi);
+    println!("{pi} with 10 min width right aligned is {pi:0>10}", pi=pi); // 10 min width
+    println!("{}", SEPARATOR);
+    debug_print();
 }
+
+fn debug_print() {
+    // Printing with `{:?}` is similar to with `{}`.
+    println!("{:?} months in a year.", 12);
+    println!("print string {:?}.", "string");
+    println!("print string {}.", "string");
+    println!("{1:?} {0:?} is the {actor:?} name.",
+             "Slater",
+             "Christian",
+             actor="actor's");
+    println!("Now {:?} will print!", DebugPrintable(3));
+    // The problem with `derive` is there is no control over how the results look.
+    // What if I want this to just show a `7`?
+    println!("Now {:?} will print!", Deep(DebugPrintable(7)));
+}
+
+#[derive(Debug)]
+struct DebugPrintable(i32);
+#[derive(Debug)]
+struct Deep(DebugPrintable);
