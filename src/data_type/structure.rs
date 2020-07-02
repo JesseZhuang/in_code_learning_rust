@@ -14,4 +14,6 @@ pub fn structures() {
     let peter = Person { name, age};
     // Print debug struct
     println!("{:?}", peter);
+    // pretty print
+    println!("{:#?}", peter);
 }
