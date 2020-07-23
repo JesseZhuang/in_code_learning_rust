@@ -8,6 +8,7 @@ use std::error::Error;
 fn main() -> Result<(), Box<dyn Error>> {
     const INPUT_FILE: &str = "inputFile";
     const CONSTANT_VALUE: &str = "constantValue";
+    const OUTPUT: &str = "comma.separate.list.output.txt";
     let matches = App::new("Generate comma separated list")
         .version("1.0")
         .author("Jesse Zhuang")
@@ -35,7 +36,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     println!("Constant value is {}", constant_value);
 
     let mut out_file = BufWriter::new(
-        OpenOptions::new().append(true).create(true).open("output.txt")?);
+        OpenOptions::new().append(true).create(true).open(OUTPUT)?);
     let mut s1 = Vec::new();
     let mut s2 = Vec::new();
     for line in read_lines(input_file)? {
@@ -44,7 +45,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
 
     const COMMA: &str = ",";
-    println!("writing to output file {}.", out_file);
+    println!("writing to output file {}.", OUTPUT);
     writeln!(out_file, "{}", s1.join(COMMA))?;
     writeln!(out_file, "{}", s2.join(COMMA))?;
     return Ok(());
