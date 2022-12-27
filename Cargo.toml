@@ -2,6 +2,11 @@
 # A crate is a binary or library.
 # A package must contain zero or one library crates, and no more.
 # can contain as many binary crates as you’d like, but it must contain at least one crate (either library or binary).
+
+# The development profile, used for `cargo build`.
+[profile.dev]
+incremental = true
+
 [package]
 name = "in_code_learning_rust"
 version = "0.1.0"
@@ -13,4 +18,4 @@ edition = "2018"
 [dependencies]
 rand = "0.7"
 typename = "0.1.1"
-clap = "2.33.0"
+clap = "2.33.0" # commandlien argument parser
