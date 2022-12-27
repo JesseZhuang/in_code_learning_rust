@@ -1,6 +1,7 @@
 /// structure data type: c struct
 
-#[derive(Debug)]
+#[allow(dead_code)] // field of Person never used
+#[derive(Debug)] // creates implementation, printable with fmt::Debug
 struct Person<'a> {
     name: &'a str,
     age: u8,

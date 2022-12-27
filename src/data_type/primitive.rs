@@ -4,7 +4,7 @@ use typename::TypeName;
 pub fn primitives() {
     // vars can be type annotated.
     let logical: bool = true;
-    println!("type of var logical {} is {}", logical, logical.type_name_of());
+    println!("type of var logical {logical} is {}", logical.type_name_of());
     let a_float: f64 = 1.0;  // Regular annotation
     println!("type of var a_float {} is {}", a_float, a_float.type_name_of());
     let an_integer = 5i32; // Suffix annotation
