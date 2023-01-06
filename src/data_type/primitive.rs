@@ -36,3 +36,17 @@ pub fn primitives() {
     println!("i32 type is {}", std::any::type_name::<i32>());
     println!("type of var mutable {} is {}", mutable, mutable.type_name_of());
 }
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn test_literals() {
+        assert_eq!(3, 1u32 + 2);
+        assert_eq!(-1, 1i32 - 2); // 1u32-2 would not compile, error saying overflow
+        assert_eq!(0b0001, 0b0011 & 0b0101u32);
+        println!("{:04b}", 2i32); // in intellij, registry, turn on org.rust.test.nocapture
+        assert_eq!(100_0000, 1_000_000u32);
+        assert_eq!(12, 0o10 + 4);
+        println!("rust void? unit type: {:?}", ())
+    }
+}
