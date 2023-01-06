@@ -1,4 +1,5 @@
 extern crate in_code_learning_rust;
+
 use in_code_learning_rust::SEPARATOR;
 
 //fmt::Debug: Uses the {:?} marker. Format text for debugging purposes.
@@ -15,6 +16,11 @@ fn main() {
              object = "the lazy dog",
              subject = "the quick brown fox",
              verb = "jumps over");
+    println!("Base 10:               {}", 69420); //69420
+    println!("Base 2 (binary):       {:b}", 69420); //10000111100101100
+    println!("Base 8 (octal):      0o{:o}", 69420); //207454
+    println!("Base 16 (hexadecimal): {:x}", 69420); //10f2c
+    println!("Base 16 (hexadecimal): {:X}", 69420); //10F2C
     // Special formatting can be specified after a `:`.
     println!("{} of {:b} people know binary, the other half doesn't", 1, 2);
     // You can right-align text with a specified width. This will output
@@ -33,8 +39,8 @@ fn main() {
     // println!("This struct `{}` won't print...", Structure(3));
     // FIXME ^ Comment out this line.
     let pi = 3.1415926;
-    println!("{pi} with 3 digits is {pi:.3}", pi=pi);
-    println!("{pi} with 10 min width right aligned is {pi:0>10}", pi=pi); // 10 min width
+    println!("{pi} with 3 digits is {pi:.3}", pi = pi);
+    println!("{pi} with 10 min width right aligned is {pi:0>10}", pi = pi); // 10 min width
     println!("{}", SEPARATOR);
     debug_print();
 }
@@ -47,7 +53,7 @@ fn debug_print() {
     println!("{1:?} {0:?} is the {actor:?} name.",
              "Slater",
              "Christian",
-             actor="actor's");
+             actor = "actor's");
     println!("Now {:?} will print!", DebugPrintable(3));
     // The problem with `derive` is there is no control over how the results look.
     // What if I want this to just show a `7`?
@@ -56,5 +62,6 @@ fn debug_print() {
 
 #[derive(Debug)]
 struct DebugPrintable(i32);
+
 #[derive(Debug)]
 struct Deep(DebugPrintable);
