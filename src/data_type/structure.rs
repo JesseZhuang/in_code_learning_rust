@@ -45,7 +45,7 @@ impl fmt::Display for IntList {
 
 #[cfg(test)]
 mod tests {
-    use crate::data_type::structure::{IntList, Structure};
+    use crate::data_type::structure::{IntList, Person, Structure};
 
     #[test]
     fn test_to_string() {
@@ -56,5 +56,24 @@ mod tests {
     #[test]
     fn test_int_list_to_string() {
         println!("{}", IntList(vec![1, 2, 3]));
+    }
+
+    struct Pair(i32, f32); // tuple struct, named tuple
+
+    #[test]
+    fn test_access_fields() {
+        let pair = Pair(1, 0.2);
+        assert_eq!(1, pair.0);
+        assert_eq!(0.2, pair.1);
+        let Pair(int, decimal) = pair; // destructure
+        assert_eq!(1, int);
+        assert_eq!(0.2, decimal);
+    }
+
+    #[test]
+    fn test_update_syntax() {
+        let sam = Person { name: "Sam", age: 12 };
+        let miles = Person { name: "Miles", ..sam };
+        assert_eq!(12, miles.age);
     }
 }

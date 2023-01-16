@@ -1,5 +1,5 @@
-use std::mem;
 /// primitive data types
+use std::mem;
 use typename::TypeName;
 
 pub fn primitives() {
