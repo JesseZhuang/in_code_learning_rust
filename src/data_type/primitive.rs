@@ -1,5 +1,6 @@
 /// primitive data types
 use std::mem;
+
 use typename::TypeName;
 
 pub fn primitives() {
@@ -54,6 +55,8 @@ pub fn type_of<T>(_: &T) -> &str {
 
 #[cfg(test)]
 mod tests {
+    use std::mem::MaybeUninit;
+
     use crate::data_type::primitive::{reverse_tuple, type_of};
 
     #[test]
@@ -86,6 +89,18 @@ mod tests {
             assert_eq!(1, n);
         }
         assert_eq!(10, arr2.len());
+
+        // declare array without init
+        // probably make more sense to just use vec or initialize with some default value 0 or -1
+        // can checkout crate array_init
+        let mut arr2: [MaybeUninit<i32>; 5] = unsafe { MaybeUninit::uninit().assume_init() };
+        arr2[2].write(3);
+        unsafe { assert_eq!(3, arr2[2].assume_init()) };
+        unsafe {
+            for elem in arr2 {
+                println!("{}", elem.assume_init()); // 0,0,3,0,39927808
+            }
+        }
     }
 
     #[test]
