@@ -1,6 +1,6 @@
 /// primitive data types
-use std::mem;
 
+use std::mem;
 use typename::TypeName;
 
 pub fn primitives() {
@@ -40,7 +40,10 @@ pub fn primitives() {
 
     let xs: [i32; 5] = [1, 2, 3, 4, 5]; // type signature is superfluous
     println!("array occupies {} bytes", mem::size_of_val(&xs)); // Arrays are stack allocated
-    println!("address {:p}-{:p}", &xs[0], &xs[1]); // 0x7ff7b5370134-0x7ff7b5370138,4 bytes each
+    println!("address {:p}-{:p}", &xs[0], &xs[1]); // 0x7ff7b49b30bc-0x7ff7b49b30c0,4 bytes each
+    let ys = [1; 5];
+    println!("address {:p}", &ys[0]); // 0x7ff7b49b317c
+    // todo: address going up, because not recursive?
 }
 
 #[allow(dead_code)]
