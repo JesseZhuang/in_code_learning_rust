@@ -38,7 +38,7 @@ impl Solution {
         for j in 1..=nums[i] {
             if Self::dfs(j as usize + i, visited, nums) { return true; };
         }
-        return false;
+        false
     }
 }
 

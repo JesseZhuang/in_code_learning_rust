@@ -1,21 +1,9 @@
-# A package is one or more crates that provide a set of functionality.
-# A crate is a binary or library.
-# A package must contain zero or one library crates, and no more.
-# can contain as many binary crates as you’d like, but it must contain at least one crate (either library or binary).
+[workspace]
+members = ["crates/*"]
+
+[workspace.package]
+rust-version = "1.66"
 
 # The development profile, used for `cargo build`.
 [profile.dev]
 incremental = true
-
-[package]
-name = "in_code_learning_rust"
-version = "0.1.0"
-authors = ["Jesse Zhuang <zhzexi@gmail.com>"]
-edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-rand = "0.7"
-typename = "0.1.1"
-clap = "2.33.0" # commandlien argument parser

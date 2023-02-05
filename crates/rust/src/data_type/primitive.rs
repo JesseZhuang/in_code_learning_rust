@@ -1,6 +1,7 @@
 /// primitive data types
 
 use std::mem;
+
 use typename::TypeName;
 
 pub fn primitives() {
@@ -125,5 +126,9 @@ mod tests {
         let slice = &arr[1..3];  // [2,3]
         assert_eq!(2, slice.len());
         assert_eq!(3, slice[1]);
+        for n in slice {
+            println!("deref: {} ref: {} ", *n, n); // same: deref: 2 ref: 2
+            println!("deref: {} address: {:p} ", *n, n); // deref: 2 ref: 0x700007deb748
+        }
     }
 }

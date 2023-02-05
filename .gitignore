@@ -1,4 +1,13 @@
-/target
+# target directories
+target/
+
+# rust
 **/*.rs.bk
+
+# intellij
 .idea/
-in_code_learning_rust.iml
+*.iml
+
+# mac
+.DS_Store
+
