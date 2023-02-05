@@ -15,3 +15,7 @@ rustc 1.66.0 (69f9c33d7 2022-12-12)
 ```
 
 Then follow https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html for IntelliJ Rust configuration.
+
+## IntelliJ Project Setup
+
+File -> Project Structure -> Modules -> + -> import module -> choose rust package folder (under crates/)
