@@ -18,10 +18,24 @@
 
 ## Packages and Crates
 
-Cargo follows a convention that src/main.rs is the crate root of a binary crate with the same name as the package. Likewise, Cargo knows that if the package directory contains src/lib.rs, the package contains a library crate with the same name as the package, and src/lib.rs is its crate root. Cargo passes the crate root files to rustc to build the library or binary.
+Cargo follows a convention that src/main.rs is the crate root of a binary crate with the same name as the package.
+Likewise, Cargo knows that if the package directory contains src/lib.rs, the package contains a library crate with the
+same name as the package, and src/lib.rs is its crate root. Cargo passes the crate root files to rustc to build the
+library or binary.
 
-A package can have multiple binary crates by placing files in the src/bin directory: each file will be a separate binary crate.
+A package can have multiple binary crates by placing files in the src/bin directory: each file will be a separate binary
+crate.
 
 ## Modules
 
-We can organize the functions into nested modules. Create a new library by running `cargo new --lib <module_name>`; then put the code in Listing 7-1 into src/lib.rs to define some modules and function signatures.
+We can organize the functions into nested modules. Create a new library by running `cargo new --lib <module_name>`; then
+put the code in Listing 7-1 into src/lib.rs to define some modules and function signatures.
+
+## Stack Allocated Array
+
+Rust arrays are stack allocated.
+
+- stack could be much faster than heap https://www.quora.com/Where-are-the-arrays-in-C-stored-in-a-stack-or-a-heap
+- known size not `static` array on
+  stack https://stackoverflow.com/questions/12874604/c-array-instantiation-stack-or-heap-allocation
+

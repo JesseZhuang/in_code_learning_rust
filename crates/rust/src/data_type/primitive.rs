@@ -40,7 +40,7 @@ pub fn primitives() {
     println!("type of var mutable {} is {}", mutable, mutable.type_name_of());
 
     let xs: [i32; 5] = [1, 2, 3, 4, 5]; // type signature is superfluous
-    println!("array occupies {} bytes", mem::size_of_val(&xs)); // Arrays are stack allocated
+    println!("array occupies {} bytes", mem::size_of_val(&xs)); // stack allocated, 20 bytes
     println!("address {:p}-{:p}", &xs[0], &xs[1]); // 0x7ff7b49b30bc-0x7ff7b49b30c0,4 bytes each
     let ys = [1; 5];
     println!("address {:p}", &ys[0]); // 0x7ff7b49b317c

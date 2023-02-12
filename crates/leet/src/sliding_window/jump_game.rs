@@ -44,7 +44,7 @@ impl Solution {
 
 #[cfg(test)]
 mod tests {
-    use crate::leet_code::jump_game::Solution;
+    use crate::sliding_window::jump_game::Solution;
 
     #[test]
     fn test_can_jump() { assert!(Solution::dp2(vec![2, 3, 1, 1, 4])); }
