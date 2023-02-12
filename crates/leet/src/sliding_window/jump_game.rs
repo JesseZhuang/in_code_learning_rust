@@ -1,8 +1,8 @@
 use std::cmp::max;
 
-/// 55 medium
+/// lc 55 medium
 
-pub struct Solution {}
+struct Solution {}
 
 impl Solution {
     /// O(n) time, O(1) space, 8ms, 2.2Mb.

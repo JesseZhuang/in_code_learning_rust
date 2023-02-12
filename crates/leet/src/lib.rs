@@ -1,6 +1,7 @@
 #![allow(dead_code)] // allow unused code for this whole crate
 
 // leet code categories as mods
+pub mod array;
 pub mod sliding_window;
 
 pub fn add(left: usize, right: usize) -> usize {
