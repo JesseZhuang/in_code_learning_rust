@@ -4,6 +4,31 @@ extern crate in_code_learning_rust;
 use in_code_learning_rust::data_type::*;
 use in_code_learning_rust::SEPARATOR;
 
+enum WebEvent {
+    // similar to unit struct
+    PageLoad,
+    PageUnload,
+    KeyPress(char),
+    // similar to tuple struct
+    Paste(String),
+    Click { x: i64, y: i64 }, // similar to c-like struct
+}
+
+#[derive(Debug)]
+enum VeryVerboseEnumThingsToDoWithNumbers {
+    Add,
+    Subtract,
+}
+
+impl VeryVerboseEnumThingsToDoWithNumbers {
+    fn run(&self, x: i32, y: i32) -> i32 {
+        match self {
+            Self::Add => x + y,
+            Self::Subtract => x - y,
+        }
+    }
+}
+
 fn main() {
     primitive::primitives();
     // Access constant in the main thread
@@ -15,18 +40,10 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    use crate::{VeryVerboseEnumThingsToDoWithNumbers, WebEvent};
+
     #[allow(dead_code)]
     struct Unit; // unit struct, useful for generics
-
-    enum WebEvent {
-        // similar to unit struct
-        PageLoad,
-        PageUnload,
-        KeyPress(char),
-        // similar to tuple struct
-        Paste(String),
-        Click { x: i64, y: i64 }, // similar to c-like struct
-    }
 
     fn event_description(event: WebEvent) -> String {
         match event {
@@ -51,5 +68,20 @@ mod tests {
             let es = event_description(e);
             println!("{es}");
         }
+    }
+
+    #[test]
+    fn test_type_alias() {
+        type Ops = VeryVerboseEnumThingsToDoWithNumbers;
+        let x = Ops::Add;
+        println!("{:?}", x); // prints Add
+    }
+
+    #[test]
+    fn test_algebra_ops() {
+        type Ops = VeryVerboseEnumThingsToDoWithNumbers;
+        let (add, subtract) = (Ops::Add, Ops::Subtract);
+        assert_eq!(3, add.run(1, 2));
+        assert_eq!(0, subtract.run(23, 23));
     }
 }

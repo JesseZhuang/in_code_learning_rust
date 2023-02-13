@@ -1,4 +1,10 @@
-# Rust Installation
+# Testing
+## Parameterized Tests
+
+https://stackoverflow.com/questions/34662713/how-can-i-create-parameterized-tests-in-rust
+
+# Setup
+## Rust Installation
 
 Rust recommends using `rustup`, which can manage multiple versions of rust.
 
