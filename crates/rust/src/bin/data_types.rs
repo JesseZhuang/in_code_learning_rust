@@ -29,6 +29,11 @@ impl VeryVerboseEnumThingsToDoWithNumbers {
     }
 }
 
+enum Status {
+    Rich,
+    Poor,
+}
+
 fn main() {
     primitive::primitives();
     // Access constant in the main thread
@@ -78,10 +83,20 @@ mod tests {
     }
 
     #[test]
-    fn test_algebra_ops() {
+    fn test_enum_algebra_ops() {
         type Ops = VeryVerboseEnumThingsToDoWithNumbers;
         let (add, subtract) = (Ops::Add, Ops::Subtract);
         assert_eq!(3, add.run(1, 2));
         assert_eq!(0, subtract.run(23, 23));
+    }
+
+    #[test]
+    fn test_enum_use_avoid_manual_scoping() {
+        use crate::Status::{Poor, Rich}; // available without manual scoping
+        let status = Poor;
+        match status {
+            Rich => println!("The rich have lots of money"),
+            Poor => println!("The poor have no money"),
+        }
     }
 }
