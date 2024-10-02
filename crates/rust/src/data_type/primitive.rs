@@ -88,7 +88,7 @@ mod tests {
     fn test_array_init() {
         let arr = [1, 2, 3];
         assert_eq!("[i32; 3]", type_of(&arr));
-        let arr2 = [1; 10];
+        let arr2 = [1; 10];  // 10 ones
         for n in arr2 {
             assert_eq!(1, n);
         }

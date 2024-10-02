@@ -15,9 +15,9 @@ pub fn structures() {
     let name = "Peter";
     let age = 27;
     let peter = Person { name, age };
-    // Print debug struct
+    // print debug struct, Person { name: "Peter", age: 27 }
     println!("{:?}", peter);
-    // pretty print
+    // pretty print, multiple lines
     println!("{:#?}", peter);
 }
 
@@ -73,7 +73,7 @@ mod tests {
     #[test]
     fn test_update_syntax() {
         let sam = Person { name: "Sam", age: 12 };
-        let miles = Person { name: "Miles", ..sam };
+        let miles = Person { name: "Miles", ..sam }; // remaining attributes from sam
         assert_eq!(12, miles.age);
     }
 }

@@ -3,6 +3,7 @@
 // leet code categories as mods
 pub mod array;
 pub mod sliding_window;
+mod hash;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right
