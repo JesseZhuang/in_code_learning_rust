@@ -1,8 +1,10 @@
 [workspace]
 members = ["crates/*"]
+resolver = "2" # https://doc.rust-lang.org/edition-guide/rust-2021/default-cargo-resolver.html
 
 [workspace.package]
-rust-version = "1.66"
+rust-version = "1.81"
+
 
 # The development profile, used for `cargo build`.
 [profile.dev]

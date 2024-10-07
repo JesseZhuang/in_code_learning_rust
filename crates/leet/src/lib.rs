@@ -4,6 +4,7 @@
 pub mod array;
 pub mod sliding_window;
 mod hash;
+mod tree;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right

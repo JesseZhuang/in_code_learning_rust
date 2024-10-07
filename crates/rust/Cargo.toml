@@ -7,9 +7,8 @@
 name = "in_code_learning_rust"
 version = "0.1.0"
 authors = ["Jesse Zhuang <zhzexi@gmail.com>"]
-resolver = "2" # https://doc.rust-lang.org/edition-guide/rust-2021/default-cargo-resolver.html
+edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-typename = "0.1.1" # type_name_of()

@@ -1,8 +1,8 @@
 [package]
 name = "actix_gcd"
 version = "0.1.0"
-edition = "2018"
 authors = ["programming rust book"]
+edition = "2021"
 
 
 [dependencies]

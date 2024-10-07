@@ -13,7 +13,7 @@ impl Solution {
             reach = max(i + *num as usize, reach);
             if reach >= nums.len() - 1 { return true; }
         }
-        return true;
+        true
     }
 
     /// O(n) time, O(1) space, 8ms, 2.2Mb.
@@ -22,13 +22,13 @@ impl Solution {
         for i in (0..nums.len() - 1).rev() {
             if i + nums[i] as usize >= smallest { smallest = i; }
         }
-        return smallest <= 0;
+        smallest <= 0
     }
 
     /// dfs O(V+E) O(N^2) time and O(N) space, 396ms, 2.7Mb
     pub fn can_jump_dfs(nums: Vec<i32>) -> bool {
         let mut visited = vec![false; nums.len() - 1];
-        return Self::dfs(0, &mut visited, &nums);
+        Self::dfs(0, &mut visited, &nums)
     }
 
     fn dfs(i: usize, visited: &mut Vec<bool>, nums: &Vec<i32>) -> bool {
