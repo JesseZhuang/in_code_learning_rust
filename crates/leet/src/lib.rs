@@ -7,6 +7,7 @@ mod hash;
 mod tree;
 mod string;
 mod structs;
+mod dp;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right
