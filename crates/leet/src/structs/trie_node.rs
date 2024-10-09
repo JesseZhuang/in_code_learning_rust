@@ -2,32 +2,34 @@ use std::collections::HashMap;
 
 #[derive(Default, Debug)]
 pub struct TrieNode {
-    next: HashMap<char, TrieNode>,
-    is_word: bool,
+    pub next: HashMap<char, TrieNode>,
+    pub end: bool,
+    pub cnt: usize, // words in trie having this prefix
 }
 
 impl TrieNode {
-    fn new() -> Self { TrieNode::default() }
-    pub(crate) fn insert(&mut self, word: String) {
+    pub fn new() -> Self { TrieNode::default() }
+    pub fn insert(&mut self, word: &str) {
         // word.chars().fold(
         //     self, |node, c| node.next.entry(c).or_default())
         //     .is_word = true
         let mut cur = self;
         for c in word.chars() {
             cur = cur.next.entry(c).or_default();
+            cur.cnt += 1;
         }
-        cur.is_word = true
+        cur.end = true;
     }
 
-    pub(crate) fn search(&self, word: String) -> bool {
-        self.get(word).map_or(false, |node| node.is_word)
+    pub fn search(&self, word: &str) -> bool {
+        self.get(word).map_or(false, |node| node.end)
     }
 
-    pub(crate) fn starts_with(&self, prefix: String) -> bool {
+    pub fn starts_with(&self, prefix: &str) -> bool {
         self.get(prefix).is_some()
     }
 
-    fn get(&self, s: String) -> Option<&TrieNode> {
+    pub fn get(&self, s: &str) -> Option<&TrieNode> {
         // s.chars().try_fold(self, |node, c| node.next.get(&c))
         let mut cur = self;
         for c in s.chars() {

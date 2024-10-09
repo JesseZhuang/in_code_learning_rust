@@ -13,14 +13,14 @@ impl Trie {
     }
 
     fn insert(&mut self, word: String) {
-        self.root.insert(word);
+        self.root.insert(&word);
     }
 
     fn search(&self, word: String) -> bool {
-        self.root.search(word)
+        self.root.search(&word)
     }
 
-    fn starts_with(&self, prefix: String) -> bool {
-        self.root.starts_with(prefix)
+    fn starts_with(&self, prefix: &str) -> bool {
+        self.root.starts_with(&prefix)
     }
 }
