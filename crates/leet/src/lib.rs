@@ -11,6 +11,7 @@ mod dp;
 mod deque;
 mod bit;
 mod graph;
+mod heap;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right
