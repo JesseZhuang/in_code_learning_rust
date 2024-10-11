@@ -21,6 +21,7 @@ pub fn structures() {
     println!("{:#?}", peter);
 }
 
+#[allow(dead_code)]
 struct Structure(i32);
 
 // Implementing the fmt::Display trait automatically implements the ToString trait.
@@ -30,6 +31,7 @@ impl fmt::Display for Structure {
     }
 }
 
+#[allow(dead_code)]
 struct IntList(Vec<i32>);
 
 impl fmt::Display for IntList {

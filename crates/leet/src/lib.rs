@@ -8,6 +8,9 @@ mod tree;
 mod string;
 mod structs;
 mod dp;
+mod deque;
+mod bit;
+mod graph;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right

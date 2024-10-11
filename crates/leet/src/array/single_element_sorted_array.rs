@@ -12,7 +12,7 @@ impl Solution {
 
     fn binary_search(nums: &[i32], target: i32) -> Option<usize> {
         let mut l = 0;
-        let mut r = nums.len().checked_sub(1)?; // return None if empty slice
+        let mut r = nums.len().checked_sub(1)?; // return None if overflow
         while l <= r {
             let mid = l + (r - l) / 2;
             // overflow means we can return None

@@ -148,7 +148,7 @@ mod tests {
 
     #[test]
     fn test_c_like_enum() {
-        use crate::{Number, Color};
+        use crate::{Color, Number};
         println!("zero is {}", Number::Zero as i32);
         println!("one is {}", Number::One as i32);
         println!("roses are {:06x}", Color::Red as i32);
@@ -165,5 +165,17 @@ mod tests {
 
         println!("linked list has length: {}", list.len());
         println!("list: {}", list.stringify());
+    }
+
+    #[test]
+    fn test_ilog2() {
+        assert_eq!(0b0100u8.ilog2(), 2); // round down log2(4)==2
+        assert_eq!(0b0101u8.ilog2(), 2); // log2(5)==2
+        assert_eq!(0b1101u8.ilog2(), 3); // log2(11)==2
+        assert_eq!(0b0101u8.leading_zeros(), 5); // 5u8 5 leading 0
+        assert_eq!(((1 << 8) - 1) as u8, u8::MAX);
+        assert_eq!(255, u8::MAX);
+        // for any u8, leading zeroes + ilog2 == 7
+        for i in 1..255 as u8 { assert_eq!(i.ilog2() + i.leading_zeros(), 8 - 1); }
     }
 }

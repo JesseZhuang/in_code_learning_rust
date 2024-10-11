@@ -10,7 +10,7 @@ impl Solution {
     pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         match root {
             Some(n) => {
-                1 + max(Self::max_depth(n.borrow().left.clone()),
+                1 + max(Self::max_depth(n.borrow().left.clone()), // clone not actual, ref cnt++
                         Self::max_depth(n.borrow().right.clone()))
             }
             None => 0
