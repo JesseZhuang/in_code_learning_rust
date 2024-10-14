@@ -175,7 +175,8 @@ mod tests {
         assert_eq!(0b0101u8.leading_zeros(), 5); // 5u8 5 leading 0
         assert_eq!(((1 << 8) - 1) as u8, u8::MAX);
         assert_eq!(255, u8::MAX);
-        // for any u8, leading zeroes + ilog2 == 7
+        // for any non-zero u8, leading zeroes + ilog2 == 7
         for i in 1..255 as u8 { assert_eq!(i.ilog2() + i.leading_zeros(), 8 - 1); }
+        assert_eq!(0u8.leading_zeros(), 8);
     }
 }
