@@ -109,6 +109,7 @@ mod tests {
         println!("b after = {b:?}");
         println!("c after = {c:?}");
         assert_eq!(15, *value.borrow());
+        assert_eq!(3, Rc::strong_count(&a)); // a, b, c
     }
 
     #[test]
