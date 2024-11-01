@@ -8,5 +8,6 @@ mod tests {
             assert_eq!(v[i], c);
             i += 1;
         }
+        assert_eq!('h', s.chars().next().unwrap());
     }
 }
