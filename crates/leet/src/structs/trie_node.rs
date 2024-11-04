@@ -15,7 +15,7 @@ impl TrieNode {
         //     .is_word = true
         let mut cur = self;
         for c in word.chars() {
-            cur = cur.next.entry(c).or_default();
+            cur = cur.next.entry(c).or_default(); // insert a new default node if not present
             cur.cnt += 1;
         }
         cur.end = true;
