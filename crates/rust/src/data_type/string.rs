@@ -26,7 +26,7 @@ mod tests {
         let slice = "hello";
         assert_eq!(String::from("hello"), slice);
         assert_eq!("hello", slice);
-        assert_eq!("hel", &slice[0..3]);
+        assert_eq!("hel", &slice[0..3]); // section of a string slice
         assert_eq!("h", &slice[0..1]); // to index a string slice
     }
 }
