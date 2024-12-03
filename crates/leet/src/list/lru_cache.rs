@@ -1,199 +1,190 @@
 // lc 146
 
-use std::{cell::RefCell, collections::HashMap, fmt::Debug, rc::Rc};
+use std::cell::RefCell;
+use std::collections::HashMap;
+use std::rc::{Rc, Weak};
 
-type Pointer<Node> = Option<Rc<RefCell<Node>>>;
+type NodePtr = Rc<RefCell<Node>>;
+type WeakNodePtr = Weak<RefCell<Node>>;
 
-struct LRUCache {
-    map: HashMap<i32, Rc<RefCell<Node>>>,
-    lru: DLinkedList,
-    cap: usize,
-}
-
-#[derive(Debug)]
 struct Node {
     key: i32,
     value: i32,
-    prev: Pointer<Node>,
-    next: Pointer<Node>,
+    /// previous will be a weak pointer to avoid cyclic references.
+    prev: Option<WeakNodePtr>,
+    /// next is a strong pointer
+    next: Option<NodePtr>,
 }
 
 impl Node {
-    pub fn new(key: i32, value: i32) -> Self {
-        Self { key, value, prev: None, next: None }
+    #[inline]
+    fn new(key: i32, value: i32) -> Self {
+        Self {
+            key,
+            value,
+            prev: None,
+            next: None,
+        }
     }
 }
 
-#[derive(Debug)]
-struct DLinkedList {
-    head: Pointer<Node>,
-    tail: Pointer<Node>,
+struct LRUCache {
+    capacity: usize,
+    map: HashMap<i32, NodePtr>,
+    head: Option<NodePtr>,
+    tail: Option<NodePtr>,
 }
 
-
-impl DLinkedList {
-    pub fn new() -> Self {
-        Self { head: None, tail: None }
-    }
-
-    fn get_head(&self) -> Pointer<Node> {
-        if self.head.is_none() {
-            None
-        } else {
-            Some(self.head.as_ref()?.clone()) // as_ref &Option<T> -> Option<&T>
-        }
-    }
-
-    fn get_tail(&self) -> Pointer<Node> {
-        if self.tail.is_none() {
-            None
-        } else {
-            Some(self.tail.as_ref()?.clone())
-        }
-    }
-
-    // pub fn add_front(&mut self, key: i32, value: i32) {
-    //     let node = Rc::new(RefCell::new(Node {
-    //         key,
-    //         value,
-    //         prev: None,
-    //         next: self.get_head(),
-    //     }));
-    //     self.head.replace(node);
-    // }
-    //
-    // pub fn add_back(&mut self, key: i32, value: i32) {
-    //     let node = Rc::new(RefCell::new(Node {
-    //         key,
-    //         value,
-    //         prev: self.get_tail(),
-    //         next: None,
-    //     }));
-    //     self.tail.replace(node);
-    // }
-
-    pub fn add_front_node(&mut self, node: Rc<RefCell<Node>>) {
-        let head = self.get_head();
-        if head.is_some() {
-            head.as_ref().unwrap().borrow_mut().prev = Some(node.clone());
-        }
-        node.borrow_mut().prev = None;
-        node.borrow_mut().next = head; // in front of head
-        self.head = Some(node);
-    }
-
-    pub fn add_back_node(&mut self, node: Rc<RefCell<Node>>) {
-        let tail = self.get_tail();
-        if tail.is_some() {
-            tail.as_ref().unwrap().borrow_mut().next = Some(node.clone());
-        }
-        node.borrow_mut().prev = tail;
-        node.borrow_mut().next = None;
-        self.tail = Some(node);
-    }
-
-    pub fn remove(&mut self, target: Rc<RefCell<Node>>) {
-        let prev = target.borrow().prev.clone();
-        let next = target.borrow().next.clone();
-        match (prev, next) {
-            (Some(prev), Some(next)) => {
-                prev.borrow_mut().next = Some(next.clone()); // only clone for next
-                next.borrow_mut().prev = Some(prev); // no clone
-            }
-            (Some(prev), None) => {
-                // tail case
-                prev.borrow_mut().next.take(); // take ownership, leave None on the place
-                self.tail.replace(prev);
-            }
-            (None, Some(next)) => {
-                // head case
-                next.borrow_mut().prev.take();
-                self.head.replace(next);
-            }
-            (None, None) => {
-                // signal node case
-                self.head.take();
-                self.tail.take();
-            }
-        }
-    }
-
-    pub fn move_head(&mut self, target: Rc<RefCell<Node>>) {
-        if !Rc::ptr_eq(self.get_head().as_ref().unwrap(), &target) {
-            self.remove(target.clone());
-            self.add_front_node(target);
-        }
-    }
-
-    // pub fn move_tail(&mut self, target: Rc<RefCell<Node>>) {
-    //     if !Rc::ptr_eq(self.get_tail().as_ref().unwrap(), &target) {
-    //         self.remove(target.clone());
-    //         self.add_back_node(target);
-    //     }
-    // }
-}
 
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
+ * todo @mimanshu-maheshwari
  */
 impl LRUCache {
+    /// initialize lru cache
     fn new(capacity: i32) -> Self {
         Self {
+            capacity: capacity as usize,
             map: HashMap::new(),
-            lru: DLinkedList::new(),
-            cap: capacity as usize,
+            head: None,
+            tail: None,
         }
     }
 
     fn get(&mut self, key: i32) -> i32 {
-        if self.map.contains_key(&key) {
-            let node = self.map.get(&key).unwrap();
-            self.lru.move_head(node.clone());
-            node.as_ref().borrow().value
+        // if node is present in map then return the value
+        if let Some(node) = self.map.get(&key) {
+            // we need to clone node as we will use it mutably in the methods.
+            let node = Rc::clone(node);
+            // bring node to front as it is accessed
+            self.remove(&node);
+            self.push_front(&node);
+            // extract the value and return it.
+            let value = node.borrow().value;
+            value
         } else {
+            // if node is not present then return -1
+            // condition in question
             -1
         }
     }
 
     fn put(&mut self, key: i32, value: i32) {
-        let node = if self.map.contains_key(&key) {
-            let node = self.map.get(&key).unwrap();
-            node.borrow_mut().value = value;
-            self.lru.remove(node.clone());
-            self.lru.add_front_node(node.clone());
-            node.clone()
-        } else {
-            let node = Rc::new(RefCell::new(Node::new(key, value)));
-            if self.map.len() == self.cap {
-                let tail = self.lru.get_tail().as_ref().unwrap().clone();
-                self.map.remove(&tail.as_ref().borrow().key);
-                self.lru.remove(tail);
-
-                self.map.insert(key, node.clone());
-                self.lru.add_front_node(node.clone());
-            } else {
-                self.map.insert(key, node.clone());
-                self.lru.add_front_node(node.clone());
+        // check if map has key
+        // if so then we can update it.
+        match self.map.get(&key) {
+            Some(node) => {
+                // copy the node
+                let node = Rc::clone(&node);
+                // update value
+                node.borrow_mut().value = value;
+                // move node to front
+                self.remove(&node);
+                self.push_front(&node);
             }
-            node
-        };
-        if self.lru.tail.is_none() {
-            self.lru.add_back_node(node);
+            // if node is not present
+            None => {
+                // create a new node
+                let node = Rc::new(RefCell::new(Node::new(key, value)));
+                // add it to linked list
+                self.push_front(&node);
+                // add it to map
+                self.map.insert(key, node);
+                // evict if necessary
+                if self.map.len() > self.capacity {
+                    if let Some(evicted_node) = self.pop_back() {
+                        // also remember to remove it from map.
+                        self.map.remove(&evicted_node.borrow().key);
+                    }
+                }
+            }
+        }
+    }
+
+    /// this method is responsible for moving pushing node to front
+    fn push_front(&mut self, node: &NodePtr) {
+        // if head is present then
+        match self.head.take() {
+            Some(head) => {
+                // set the prev of head to node
+                head.borrow_mut().prev = Some(Rc::downgrade(&node));
+                // set the next of node as head
+                node.borrow_mut().next = Some(Rc::clone(&head));
+                // update the prev of node to none
+                node.borrow_mut().prev = None;
+                // update the head in list to node
+                self.head = Some(Rc::clone(&node));
+            }
+            // else if head is not present then
+            None => {
+                // add the node as head and tail
+                self.head = Some(Rc::clone(&node));
+                self.tail = Some(Rc::clone(&node));
+            }
+        }
+    }
+
+    /// this method is responsible for removing the node from list.
+    fn remove(&mut self, node: &NodePtr) {
+        // we will match the node on prev and next
+        match (node.clone().borrow().prev.as_ref(), node.clone().borrow().next.as_ref()) {
+            // meaning only one node so we can remove head
+            (None, None) => {
+                self.head = None;
+                self.tail = None;
+            }
+            // the node is a tail node
+            (Some(prev), None) => {
+                if let Some(prev) = prev.upgrade() {
+                    self.tail = Some(Rc::clone(&prev));
+                    prev.borrow_mut().next = None;
+                }
+            }
+            // node is a head node
+            (None, Some(next)) => {
+                self.head = Some(Rc::clone(&next));
+                next.borrow_mut().prev = None;
+            }
+            // node is in middle
+            (Some(prev), Some(next)) => {
+                if let Some(prev) = prev.upgrade() {
+                    prev.borrow_mut().next = Some(Rc::clone(&next));
+                }
+                next.borrow_mut().prev = Some(prev.clone());
+            }
+        }
+    }
+
+    /// this will pop the tail of linked list
+    fn pop_back(&mut self) -> Option<NodePtr> {
+        match self.tail.take() {
+            Some(tail) => {
+                self.remove(&tail);
+                Some(tail)
+            }
+            None => None,
         }
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::list::lru_cache::Node;
     use std::cell::RefCell;
     use std::rc::Rc;
 
+    #[derive(Debug, Default)]
+    struct Node {
+        key: i32,
+        value: i32,
+        prev: Option<Rc<RefCell<Node>>>,
+        next: Option<Rc<RefCell<Node>>>,
+    }
+
     #[test]
     fn test_option_take() {
-        let head = Some(Rc::new(RefCell::new(Node::new(1, 2))));
-        let tail = Some(Rc::new(RefCell::new(Node::new(2, 1))));
+        let head = Some(Rc::new(RefCell::new(Node::default())));
+        let tail = Some(Rc::new(RefCell::new(Node::default())));
         assert_eq!(1, Rc::strong_count(head.as_ref().unwrap())); // head var
         assert_eq!(1, Rc::strong_count(tail.as_ref().unwrap())); // tail var
         head.as_ref().unwrap().borrow_mut().next = tail.clone();
@@ -202,6 +193,7 @@ mod tests {
         tail.as_ref().unwrap().borrow_mut().prev = head.clone();
         assert_eq!(2, Rc::strong_count(head.as_ref().unwrap()));
         assert_eq!(2, Rc::strong_count(tail.as_ref().unwrap()));
+        // take ownership, leave None on the place
         head.as_ref().unwrap().borrow_mut().next.take();
         assert_eq!(2, Rc::strong_count(head.as_ref().unwrap())); // head, tail.prev
         assert_eq!(1, Rc::strong_count(tail.as_ref().unwrap())); // tail

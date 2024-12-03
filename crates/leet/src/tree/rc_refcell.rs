@@ -11,8 +11,8 @@ type Pointer<T> = Option<Rc<RefCell<Node<T>>>>;
 #[derive(Default, Debug)]
 pub struct Node<T: Default> {
     pub val: T,
-    pub prev: Option<Weak<RefCell<Node<T>>>>, // does not own pointer to prev
-    pub next: Pointer<T>, // owns pointer to next
+    pub prev: Option<Weak<RefCell<Node<T>>>>, // does not own the pointer to prev
+    pub next: Pointer<T>, // owns the pointer to next
 }
 
 impl<T> Node<T>
@@ -110,6 +110,8 @@ mod tests {
         println!("c after = {c:?}");
         assert_eq!(15, *value.borrow());
         assert_eq!(3, Rc::strong_count(&a)); // a, b, c
+        let _d = a.clone();
+        assert_eq!(4, Rc::strong_count(&a));
     }
 
     #[test]
