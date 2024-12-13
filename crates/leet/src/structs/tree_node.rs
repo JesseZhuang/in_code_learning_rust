@@ -10,7 +10,7 @@ pub struct TreeNode {
 }
 
 impl TreeNode {
-    #[inline]
+    #[inline] // https://stackoverflow.com/questions/37639276/when-should-inline-be-used-in-rust
     pub fn new(val: i32) -> Self {
         TreeNode {
             val,

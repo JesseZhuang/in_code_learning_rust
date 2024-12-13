@@ -7,6 +7,7 @@ use std::rc::{Rc, Weak};
 type NodePtr = Rc<RefCell<Node>>;
 type WeakNodePtr = Weak<RefCell<Node>>;
 
+#[derive(Debug)]
 struct Node {
     key: i32,
     value: i32,
@@ -191,8 +192,8 @@ mod tests {
         assert_eq!(1, Rc::strong_count(head.as_ref().unwrap()));
         assert_eq!(2, Rc::strong_count(tail.as_ref().unwrap())); // tail, head.next
         tail.as_ref().unwrap().borrow_mut().prev = head.clone();
-        assert_eq!(2, Rc::strong_count(head.as_ref().unwrap()));
-        assert_eq!(2, Rc::strong_count(tail.as_ref().unwrap()));
+        assert_eq!(2, Rc::strong_count(head.as_ref().unwrap())); // head, tail.prev
+        assert_eq!(2, Rc::strong_count(tail.as_ref().unwrap())); // tail, head.next
         // take ownership, leave None on the place
         head.as_ref().unwrap().borrow_mut().next.take();
         assert_eq!(2, Rc::strong_count(head.as_ref().unwrap())); // head, tail.prev

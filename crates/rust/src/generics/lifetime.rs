@@ -2,11 +2,13 @@
 
 /// not changing the lifetimes of any values passed in or returned
 /// just specifying that the borrow checker should reject those don’t adhere to these constraints.
+#[allow(dead_code)]
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() { x } else { y }
 }
 
 /// instance cannot outlive the reference
+#[allow(dead_code)]
 struct ImportantExcerpt<'a> {
     part: &'a str,
 }
