@@ -25,7 +25,7 @@ impl Solution {
             if !n.right.is_none() { q.push_back((n.right.clone(), c + 1)) }
         }
         // move out of the map, alternatively can copy with .clone()
-        for i in min_c..max_c + 1 { res.push(col_v.remove(&i).unwrap()) }
+        for i in min_c..max_c + 1 { res.push(col_v.remove(&i).expect("col should exist")) }
         res
     }
 }

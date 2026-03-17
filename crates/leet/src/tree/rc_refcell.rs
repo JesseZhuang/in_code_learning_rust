@@ -123,4 +123,30 @@ mod tests {
         }
         println!("{}", list);
     }
+
+    #[test]
+    /// mutable Rc can no longer mutate if any other Rc exists.
+    fn test_rc_mut() {
+        let mut x = Rc::new(5);
+        *Rc::get_mut(&mut x).unwrap() = 6;
+        assert_eq!(*x, 6);
+        let mut y = Rc::clone(&x);
+        let (r1, r2) = (Rc::get_mut(&mut x), Rc::get_mut(&mut y));
+        assert!(r1.is_none());
+        assert!(r2.is_none());
+        drop(y);
+        *Rc::get_mut(&mut x).unwrap() = 5;
+        assert_eq!(*x, 5);
+        let _y = Rc::clone(&x);
+        assert!(Rc::get_mut(&mut x).is_none());
+    }
+
+    #[test]
+    fn test_rc_immut() {
+        let x = Rc::new(5);
+        let y = Rc::clone(&x);
+        assert_eq!(x, y);
+        assert_eq!(*x, *y);
+        assert_eq!(*x, 5);
+    }
 }

@@ -96,6 +96,11 @@ mod tests {
         assert!(Rc::ptr_eq(&five, &same_five));
         // five and other_five does not reference the same value in memory
         assert!(!Rc::ptr_eq(&five, &other_five));
+        let same_five_weak = Rc::downgrade(&five);
+        let _same_five_weak2 = Rc::downgrade(&five);
+        assert!(Rc::ptr_eq(&five, &same_five_weak.upgrade().unwrap()));
+        assert_eq!(Rc::strong_count(&five), 2); // five, same_five
+        assert_eq!(Rc::weak_count(&five), 2); // weak, weak2
     }
 
     #[test]
@@ -114,11 +119,7 @@ mod tests {
         // )
         let (left, right) = (Node::new_ptr(-1), Node::new_ptr(1)); // not wrapped
         let n = n_o.unwrap(); // node moved to var n, n_o can no longer be used
-        // let mut n_mut = n.borrow_mut();
-        n.borrow_mut().left = Some(left.clone());
-        n.borrow_mut().right = Some(right.clone());
-        left.borrow_mut().parent = Some(Rc::downgrade(&n));
-        right.borrow_mut().parent = Some(Rc::downgrade(&n));
+        Node::connect(n.clone(), left.clone(), right.clone());
         println!("{n:#?}");
         // RefCell {
         //     value: Node {
