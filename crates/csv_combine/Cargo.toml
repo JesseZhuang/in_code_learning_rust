@@ -6,7 +6,7 @@
 [package]
 name = "csv_combine"
 version = "0.1.0"
-authors = ["Jesse Zhuang <zhzexi@gmail.com>"]
+authors = ["JZ"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

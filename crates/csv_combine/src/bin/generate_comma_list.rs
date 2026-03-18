@@ -11,7 +11,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     const OUTPUT: &str = "comma.separate.list.output.txt";
     let matches = App::new("Generate comma separated list")
         .version("1.0")
-        .author("Jesse Zhuang")
+        .author("JZ")
         .about("Generate 2 comma separated list with constant value in second list.")
         .arg(Arg::with_name(INPUT_FILE)
             .short("i")
