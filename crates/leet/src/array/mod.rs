@@ -7,3 +7,5 @@ mod koko_bananas;
 mod largest_submatrix_rearrangements;
 mod count_submatrices_top_left_sum_le_k;
 mod count_submatrices_equal_freq_xy;
+pub mod kth_smallest_matrix;
+pub mod xor_after_range_multiplication_queries_i;
