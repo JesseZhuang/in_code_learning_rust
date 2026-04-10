@@ -4,3 +4,4 @@ mod rotting_oranges;
 mod max_candies_boxes;
 mod excel_sum_formula;
 pub mod accounts_merge;
+mod number_of_islands;
