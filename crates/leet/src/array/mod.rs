@@ -10,3 +10,4 @@ mod count_submatrices_equal_freq_xy;
 pub mod kth_smallest_matrix;
 pub mod xor_after_range_multiplication_queries_i;
 pub mod merge_intervals;
+mod min_distance_target;
