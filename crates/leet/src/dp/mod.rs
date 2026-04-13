@@ -5,3 +5,4 @@ mod max_subarray;
 mod grid_game;
 mod max_profit_job;
 pub mod shopping_offers;
+mod max_prod_subarray;
