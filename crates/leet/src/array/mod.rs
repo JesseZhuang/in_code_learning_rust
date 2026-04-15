@@ -12,3 +12,4 @@ pub mod xor_after_range_multiplication_queries_i;
 pub mod merge_intervals;
 mod min_distance_target;
 mod trapping_rain_water;
+mod product_except_self;
