@@ -171,6 +171,7 @@ impl LRUCache {
 
 #[cfg(test)]
 mod tests {
+    use super::LRUCache;
     use std::cell::RefCell;
     use std::rc::Rc;
 
@@ -194,9 +195,86 @@ mod tests {
         tail.as_ref().unwrap().borrow_mut().prev = head.clone();
         assert_eq!(2, Rc::strong_count(head.as_ref().unwrap())); // head, tail.prev
         assert_eq!(2, Rc::strong_count(tail.as_ref().unwrap())); // tail, head.next
-        // take ownership, leave None on the place
         head.as_ref().unwrap().borrow_mut().next.take();
         assert_eq!(2, Rc::strong_count(head.as_ref().unwrap())); // head, tail.prev
         assert_eq!(1, Rc::strong_count(tail.as_ref().unwrap())); // tail
+    }
+
+    #[test]
+    fn example1_from_problem() {
+        let mut c = LRUCache::new(2);
+        c.put(1, 1);
+        c.put(2, 2);
+        assert_eq!(c.get(1), 1); // 1 is most recent
+        c.put(3, 3);             // evict key 2
+        assert_eq!(c.get(2), -1);
+        c.put(4, 4);             // evict key 1
+        assert_eq!(c.get(1), -1);
+        assert_eq!(c.get(3), 3);
+        assert_eq!(c.get(4), 4);
+    }
+
+    #[test]
+    fn miss_returns_minus_one() {
+        let mut c = LRUCache::new(1);
+        assert_eq!(c.get(0), -1);
+    }
+
+    #[test]
+    fn put_updates_value_and_marks_recent() {
+        let mut c = LRUCache::new(2);
+        c.put(1, 10);
+        c.put(2, 20);
+        c.put(1, 100); // update + mark 1 as MRU
+        c.put(3, 30);  // evict 2 (LRU), keep 1, 3
+        assert_eq!(c.get(1), 100);
+        assert_eq!(c.get(2), -1);
+        assert_eq!(c.get(3), 30);
+    }
+
+    #[test]
+    fn capacity_one_always_evicts_previous() {
+        let mut c = LRUCache::new(1);
+        c.put(1, 1);
+        assert_eq!(c.get(1), 1);
+        c.put(2, 2);
+        assert_eq!(c.get(1), -1);
+        assert_eq!(c.get(2), 2);
+    }
+
+    #[test]
+    fn get_promotes_lru() {
+        let mut c = LRUCache::new(3);
+        c.put(1, 1);
+        c.put(2, 2);
+        c.put(3, 3);
+        assert_eq!(c.get(1), 1); // promote 1; LRU is now 2
+        c.put(4, 4);             // evict 2
+        assert_eq!(c.get(2), -1);
+        assert_eq!(c.get(1), 1);
+        assert_eq!(c.get(3), 3);
+        assert_eq!(c.get(4), 4);
+    }
+
+    #[test]
+    fn many_inserts_within_capacity() {
+        let mut c = LRUCache::new(5);
+        for i in 0..5 {
+            c.put(i, i * 10);
+        }
+        for i in 0..5 {
+            assert_eq!(c.get(i), i * 10);
+        }
+    }
+
+    #[test]
+    fn overwrites_dont_change_size() {
+        let mut c = LRUCache::new(2);
+        c.put(1, 1);
+        c.put(1, 2);
+        c.put(1, 3);
+        c.put(2, 2);
+        assert_eq!(c.get(1), 3);
+        assert_eq!(c.get(2), 2);
     }
 }
