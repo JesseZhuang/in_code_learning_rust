@@ -10,3 +10,4 @@ mod partition_equal_subset_sum;
 mod sum_of_subarray_minimums;
 pub mod longest_increasing_subsequence;
 mod edit_distance;
+mod coin_change;
