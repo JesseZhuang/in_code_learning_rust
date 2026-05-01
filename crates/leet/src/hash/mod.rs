@@ -6,3 +6,7 @@ pub mod subarray_sum_equals_k;
 pub mod group_anagrams;
 pub mod walking_robot_simulation;
 pub mod longest_consecutive_sequence;
+pub mod kdiff_pairs;
+mod subdomain_visit_count;
+mod uniq_l3_palindrome_subsequence;
+mod check_if_n_double_exist;

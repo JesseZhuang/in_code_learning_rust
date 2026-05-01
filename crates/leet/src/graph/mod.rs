@@ -5,3 +5,8 @@ mod max_candies_boxes;
 mod excel_sum_formula;
 pub mod accounts_merge;
 mod number_of_islands;
+mod nested_list_weight_sum;
+mod robot_bounded_in_circle;
+mod critical_connections;
+mod count_unguarded_cells;
+mod zero_one_matrix;
