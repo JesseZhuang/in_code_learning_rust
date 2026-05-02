@@ -1,3 +1,4 @@
+pub mod asteroid_collision;
 mod daily_temperatures;
 pub mod max_freq_stack;
 pub mod min_stack;
