@@ -10,3 +10,4 @@ mod robot_bounded_in_circle;
 mod critical_connections;
 mod count_unguarded_cells;
 mod zero_one_matrix;
+pub mod course_schedule;
