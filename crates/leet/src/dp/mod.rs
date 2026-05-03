@@ -13,3 +13,4 @@ mod edit_distance;
 mod coin_change;
 mod optimal_account_balance;
 mod count_ways_good_strings;
+mod gen_parentheses;
