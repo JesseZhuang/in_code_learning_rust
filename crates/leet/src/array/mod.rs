@@ -22,3 +22,4 @@ mod defuse_bomb;
 mod minimized_max_products;
 mod find_k_closest_elements;
 mod power_k_size_subarrays;
+pub mod container_with_most_water;
