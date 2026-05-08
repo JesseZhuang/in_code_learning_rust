@@ -5,3 +5,4 @@ pub mod kth_largest_element;
 pub mod top_k_frequent_elements;
 mod ipo;
 mod gift_richest_pile;
+pub mod find_median_stream;
