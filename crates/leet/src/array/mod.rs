@@ -24,3 +24,4 @@ mod find_k_closest_elements;
 pub mod partition_labels;
 mod power_k_size_subarrays;
 pub mod container_with_most_water;
+mod rotate_image;
