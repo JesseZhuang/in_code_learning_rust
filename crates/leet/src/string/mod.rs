@@ -18,3 +18,4 @@ mod trie_ii;
 mod shortest_palindrome;
 mod better_compression;
 mod reconstruct_digits;
+pub mod letter_combinations_phone_number;
