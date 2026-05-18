@@ -1,4 +1,5 @@
 mod jump_game;
+pub mod longest_repeating_character_replacement;
 pub mod longest_substring_without_repeating;
 mod max_consecutive_ones_ii;
 mod max_sum_distinct_k;
