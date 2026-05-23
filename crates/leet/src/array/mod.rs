@@ -27,3 +27,4 @@ mod power_k_size_subarrays;
 pub mod container_with_most_water;
 mod rotate_image;
 mod spiral_matrix;
+pub mod non_overlapping_intervals;
