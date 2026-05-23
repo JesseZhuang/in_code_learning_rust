@@ -8,3 +8,4 @@ mod gift_richest_pile;
 pub mod find_median_stream;
 pub mod k_closest_points_to_origin;
 mod total_cost_hire_k_workers;
+pub mod task_scheduler;
