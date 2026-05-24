@@ -13,6 +13,7 @@ pub mod merge_intervals;
 mod min_distance_target;
 mod trapping_rain_water;
 mod product_except_self;
+mod search_2d_matrix;
 mod search_rotated_sorted_array;
 mod three_sum;
 mod combination_sum;
