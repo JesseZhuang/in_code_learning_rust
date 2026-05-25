@@ -29,3 +29,4 @@ pub mod container_with_most_water;
 mod rotate_image;
 mod spiral_matrix;
 pub mod non_overlapping_intervals;
+pub mod gas_station;
