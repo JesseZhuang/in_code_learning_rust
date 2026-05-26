@@ -30,3 +30,4 @@ mod rotate_image;
 mod spiral_matrix;
 pub mod non_overlapping_intervals;
 pub mod gas_station;
+pub mod find_duplicate_number;
