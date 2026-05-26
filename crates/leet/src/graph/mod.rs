@@ -7,6 +7,7 @@ pub mod accounts_merge;
 pub mod clone_graph;
 mod number_of_islands;
 mod nested_list_weight_sum;
+mod network_delay_time;
 mod robot_bounded_in_circle;
 mod critical_connections;
 mod count_unguarded_cells;
