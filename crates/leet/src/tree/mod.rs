@@ -10,3 +10,4 @@ pub mod kth_smallest_bst;
 mod reverse_odd_levels_bt;
 mod bt_from_preorder_inorder;
 mod kth_largest_sum_bt;
+mod binary_tree_right_side_view;
