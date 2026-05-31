@@ -7,3 +7,4 @@ mod valid_paren_mr;
 mod shortest_subarray_k;
 mod largest_rectangle_histogram;
 mod car_fleet;
+mod sliding_window_max;
