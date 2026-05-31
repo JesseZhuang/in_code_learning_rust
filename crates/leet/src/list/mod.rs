@@ -4,3 +4,4 @@ pub mod merge_two_sorted_lists;
 pub mod merge_k_sorted_lists;
 pub mod reverse_linked_list;
 pub mod reorder_list;
+pub mod copy_list_with_random_pointer;
