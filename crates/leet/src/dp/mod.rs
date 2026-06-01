@@ -17,3 +17,4 @@ mod gen_parentheses;
 mod word_break;
 mod house_robber;
 pub mod buy_sell_stock;
+mod unique_paths;
