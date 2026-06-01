@@ -15,3 +15,4 @@ mod zero_one_matrix;
 pub mod course_schedule;
 mod word_search;
 pub mod pacific_atlantic_water_flow;
+pub mod shortest_path_binary_matrix;
