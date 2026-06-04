@@ -12,3 +12,4 @@ mod bt_from_preorder_inorder;
 mod kth_largest_sum_bt;
 mod binary_tree_right_side_view;
 pub mod lowest_common_ancestor_bt;
+mod flatten_bt_to_linked_list;
