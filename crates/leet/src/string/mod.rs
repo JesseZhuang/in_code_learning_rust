@@ -21,3 +21,4 @@ mod reconstruct_digits;
 pub mod letter_combinations_phone_number;
 mod longest_palindromic_substring;
 mod palindromic_substrings;
+pub mod minimum_remove_to_make_valid_parentheses;
