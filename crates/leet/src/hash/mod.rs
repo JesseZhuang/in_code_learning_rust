@@ -11,3 +11,4 @@ mod subdomain_visit_count;
 mod uniq_l3_palindrome_subsequence;
 mod check_if_n_double_exist;
 pub mod time_based_key_value_store;
+pub mod contiguous_array;
