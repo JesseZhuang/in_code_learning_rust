@@ -14,6 +14,7 @@ mod graph;
 mod heap;
 mod list;
 mod sliding;
+mod stack;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right
