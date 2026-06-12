@@ -19,3 +19,4 @@ mod house_robber;
 pub mod buy_sell_stock;
 mod unique_paths;
 mod burst_balloons;
+pub mod longest_palindromic_subsequence;
