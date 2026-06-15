@@ -36,3 +36,4 @@ mod find_peak_element;
 mod find_min_rotated_sorted_array;
 pub mod subsets;
 pub mod set_matrix_zeroes;
+mod insert_interval;
