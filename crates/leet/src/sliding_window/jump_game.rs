@@ -54,4 +54,34 @@ mod tests {
 
     #[test] // visited[1] out of bound
     fn test_can_jump1() { assert!(Solution::can_jump_dfs(vec![1, 2])); }
+
+    #[test]
+    fn test_single_zero() {
+        assert!(Solution::dp1(vec![0]));
+        assert!(Solution::dp2(vec![0]));
+    }
+
+    #[test]
+    fn test_unreachable_short() {
+        assert_eq!(false, Solution::dp1(vec![0, 1]));
+        assert_eq!(false, Solution::dp2(vec![0, 1]));
+    }
+
+    #[test]
+    fn test_large_first() {
+        assert!(Solution::dp1(vec![10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
+        assert!(Solution::dp2(vec![10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
+    }
+
+    #[test]
+    fn test_stuck_at_zero() {
+        assert_eq!(false, Solution::dp1(vec![1, 0, 0, 1]));
+        assert_eq!(false, Solution::dp2(vec![1, 0, 0, 1]));
+    }
+
+    #[test]
+    fn test_barely_reachable() {
+        assert!(Solution::dp1(vec![1, 1, 1, 1, 1]));
+        assert!(Solution::dp2(vec![1, 1, 1, 1, 1]));
+    }
 }
