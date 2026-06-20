@@ -19,3 +19,4 @@ pub mod shortest_path_binary_matrix;
 mod cheapest_flights_within_k_stops;
 mod redundant_connection;
 mod max_area_of_island;
+pub mod longest_increasing_path;
