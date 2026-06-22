@@ -20,6 +20,7 @@ mod three_sum;
 mod combination_sum;
 mod count_fair_pairs;
 mod shortest_subarray_removed;
+pub mod sort_colors;
 mod defuse_bomb;
 mod minimized_max_products;
 mod find_k_closest_elements;
