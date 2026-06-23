@@ -11,6 +11,7 @@ mod sum_of_subarray_minimums;
 pub mod longest_increasing_subsequence;
 mod edit_distance;
 mod coin_change;
+mod coin_change_ii;
 mod optimal_account_balance;
 mod count_ways_good_strings;
 mod gen_parentheses;
