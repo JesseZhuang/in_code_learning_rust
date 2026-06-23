@@ -21,3 +21,4 @@ mod redundant_connection;
 mod max_area_of_island;
 pub mod longest_increasing_path;
 pub mod path_with_minimum_effort;
+mod surrounded_regions;
