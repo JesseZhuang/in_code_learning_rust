@@ -22,3 +22,4 @@ mod unique_paths;
 mod burst_balloons;
 pub mod longest_palindromic_subsequence;
 pub mod distinct_subsequences;
+pub mod max_sum_circular_subarray;
