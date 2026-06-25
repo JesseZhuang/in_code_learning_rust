@@ -23,3 +23,4 @@ pub mod longest_increasing_path;
 pub mod path_with_minimum_effort;
 mod surrounded_regions;
 pub mod number_of_provinces;
+pub mod keys_and_rooms;
