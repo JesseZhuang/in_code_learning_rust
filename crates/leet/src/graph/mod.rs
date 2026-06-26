@@ -24,3 +24,4 @@ pub mod path_with_minimum_effort;
 mod surrounded_regions;
 pub mod number_of_provinces;
 pub mod keys_and_rooms;
+pub mod open_the_lock;
