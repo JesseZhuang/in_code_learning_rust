@@ -13,6 +13,7 @@ mod critical_connections;
 mod count_unguarded_cells;
 mod zero_one_matrix;
 pub mod course_schedule;
+mod course_schedule_ii;
 mod word_search;
 pub mod pacific_atlantic_water_flow;
 pub mod shortest_path_binary_matrix;
