@@ -14,3 +14,4 @@ pub mod time_based_key_value_store;
 pub mod contiguous_array;
 pub mod insert_del_random;
 pub mod valid_sudoku;
+pub mod longest_palindrome_concatenating;
