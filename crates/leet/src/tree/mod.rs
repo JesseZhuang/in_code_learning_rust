@@ -16,3 +16,4 @@ mod flatten_bt_to_linked_list;
 mod bt_level_order;
 mod serialize_deserialize_bt;
 pub mod validate_bst;
+mod diameter_of_binary_tree;
