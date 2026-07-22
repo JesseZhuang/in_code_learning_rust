@@ -28,3 +28,4 @@ pub mod keys_and_rooms;
 pub mod open_the_lock;
 pub mod detonate_maximum_bombs;
 pub mod word_ladder;
+pub mod minimum_height_trees;
