@@ -17,3 +17,4 @@ mod bt_level_order;
 mod serialize_deserialize_bt;
 pub mod validate_bst;
 mod diameter_of_binary_tree;
+pub mod path_sum_iii;
