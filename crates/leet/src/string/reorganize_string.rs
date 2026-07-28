@@ -32,3 +32,36 @@ impl Solution {
         String::from_utf8(res).expect("invalid utf8")
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn is_valid(result: &str, s: &str) -> bool {
+        let mut r: Vec<u8> = result.bytes().collect();
+        let mut o: Vec<u8> = s.bytes().collect();
+        r.sort();
+        o.sort();
+        if r != o { return false; }
+        let rb = result.as_bytes();
+        for i in 1..rb.len() {
+            if rb[i] == rb[i - 1] { return false; }
+        }
+        true
+    }
+
+    #[test]
+    fn test_possible() {
+        for s in ["aab", "a", "ab", "aabb", "aaabb", "vvvlo"] {
+            let res = Solution::reorganize_string(s.to_string());
+            assert!(is_valid(&res, s), "Invalid for input: {}, got: {}", s, res);
+        }
+    }
+
+    #[test]
+    fn test_impossible() {
+        for s in ["aaab", "aa", "aaaa"] {
+            assert_eq!(Solution::reorganize_string(s.to_string()), "");
+        }
+    }
+}
