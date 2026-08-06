@@ -1,3 +1,4 @@
+pub mod daily_temperatures;
 pub mod evaluate_reverse_polish_notation;
 pub mod online_stock_span;
 pub mod remove_duplicate_letters;
