@@ -13,6 +13,7 @@ mod edit_distance;
 mod coin_change;
 mod coin_change_ii;
 mod optimal_account_balance;
+mod palindrome_partitioning;
 mod count_ways_good_strings;
 mod gen_parentheses;
 mod word_break;
