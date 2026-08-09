@@ -2,6 +2,7 @@
 
 // leet code categories as mods
 mod array;
+mod binary_search;
 mod sliding_window;
 mod hash;
 mod tree;
