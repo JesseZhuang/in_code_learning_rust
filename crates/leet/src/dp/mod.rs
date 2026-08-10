@@ -25,4 +25,5 @@ pub mod longest_palindromic_subsequence;
 pub mod distinct_subsequences;
 pub mod max_sum_circular_subarray;
 mod target_sum;
+mod perfect_squares;
 pub mod longest_string_chain;
