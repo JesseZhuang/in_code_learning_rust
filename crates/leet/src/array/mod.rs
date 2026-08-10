@@ -36,6 +36,7 @@ pub mod find_duplicate_number;
 mod find_peak_element;
 mod find_min_rotated_sorted_array;
 pub mod subsets;
+pub mod subsets_ii;
 pub mod set_matrix_zeroes;
 mod insert_interval;
 mod next_permutation;
