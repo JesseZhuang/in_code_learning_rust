@@ -34,3 +34,4 @@ pub mod min_cost_connect_all_points;
 pub mod swim_in_rising_water;
 pub mod path_with_max_probability;
 pub mod shortest_bridge;
+pub mod reconstruct_itinerary;
