@@ -27,3 +27,4 @@ pub mod max_sum_circular_subarray;
 mod target_sum;
 mod perfect_squares;
 pub mod longest_string_chain;
+pub mod maximal_square;
