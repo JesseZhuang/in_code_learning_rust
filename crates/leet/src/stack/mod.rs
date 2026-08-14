@@ -1,6 +1,7 @@
 pub mod basic_calculator_ii;
 pub mod daily_temperatures;
 pub mod evaluate_reverse_polish_notation;
+pub mod one_three_two_pattern;
 pub mod online_stock_span;
 pub mod remove_duplicate_letters;
 pub mod remove_k_digits;
