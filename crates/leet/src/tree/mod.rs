@@ -20,3 +20,4 @@ mod diameter_of_binary_tree;
 pub mod path_sum_iii;
 pub mod house_robber_iii;
 mod all_nodes_distance_k_bt;
+pub mod amount_of_time_infected;
