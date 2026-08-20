@@ -13,3 +13,4 @@ mod maximum_subsequence_score;
 pub mod k_pairs_smallest_sums;
 pub mod design_twitter;
 pub mod meeting_rooms_ii;
+pub mod hand_of_straights;
