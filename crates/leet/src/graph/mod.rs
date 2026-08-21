@@ -6,6 +6,7 @@ mod excel_sum_formula;
 pub mod accounts_merge;
 pub mod clone_graph;
 mod number_of_islands;
+pub mod number_of_connected_components;
 mod nested_list_weight_sum;
 mod network_delay_time;
 mod robot_bounded_in_circle;
