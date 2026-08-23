@@ -28,3 +28,4 @@ mod target_sum;
 mod perfect_squares;
 pub mod longest_string_chain;
 pub mod maximal_square;
+pub mod delete_and_earn;
