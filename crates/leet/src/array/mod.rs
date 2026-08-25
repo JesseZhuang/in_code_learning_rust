@@ -45,3 +45,4 @@ pub mod first_missing_positive;
 pub mod min_arrows_burst_balloons;
 mod interval_list_intersections;
 pub mod majority_element;
+mod largest_number;
