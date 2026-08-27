@@ -5,3 +5,4 @@ pub mod minimize_max_difference_of_pairs;
 pub mod split_array_largest_sum;
 pub mod random_pick_with_weight;
 pub mod successful_pairs;
+pub mod search_suggestions_system;
