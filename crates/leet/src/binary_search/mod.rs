@@ -6,3 +6,4 @@ pub mod split_array_largest_sum;
 pub mod random_pick_with_weight;
 pub mod successful_pairs;
 pub mod search_suggestions_system;
+pub mod flowers_in_full_bloom;
