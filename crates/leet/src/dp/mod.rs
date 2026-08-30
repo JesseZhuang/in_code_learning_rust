@@ -18,6 +18,7 @@ mod count_ways_good_strings;
 mod gen_parentheses;
 mod word_break;
 mod house_robber;
+mod house_robber_ii;
 pub mod buy_sell_stock;
 mod unique_paths;
 mod burst_balloons;
