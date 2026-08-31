@@ -18,6 +18,7 @@ mod search_rotated_sorted_array;
 mod search_range;
 mod three_sum;
 mod combination_sum;
+pub mod combination_sum_ii;
 mod count_fair_pairs;
 mod shortest_subarray_removed;
 pub mod sort_colors;
