@@ -20,6 +20,7 @@ mod word_break;
 mod house_robber;
 mod house_robber_ii;
 pub mod buy_sell_stock;
+pub mod buy_sell_stock_cooldown;
 mod unique_paths;
 mod burst_balloons;
 pub mod longest_palindromic_subsequence;
