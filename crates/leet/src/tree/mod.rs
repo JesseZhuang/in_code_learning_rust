@@ -18,6 +18,7 @@ mod bt_zigzag;
 mod serialize_deserialize_bt;
 pub mod validate_bst;
 mod diameter_of_binary_tree;
+mod max_width_bt;
 pub mod path_sum_iii;
 pub mod house_robber_iii;
 mod all_nodes_distance_k_bt;
