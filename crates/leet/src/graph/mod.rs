@@ -31,6 +31,7 @@ pub mod detonate_maximum_bombs;
 pub mod word_ladder;
 pub mod minimum_height_trees;
 pub mod evaluate_division;
+pub mod eventual_safe_states;
 pub mod min_cost_connect_all_points;
 pub mod swim_in_rising_water;
 pub mod path_with_max_probability;
