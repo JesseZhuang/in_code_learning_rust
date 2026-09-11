@@ -35,3 +35,4 @@ pub mod maximal_rectangle;
 pub mod interleaving_string;
 mod minimum_path_sum;
 mod triangle;
+mod unique_bst;
