@@ -1,3 +1,4 @@
+pub mod basic_calculator;
 pub mod basic_calculator_ii;
 pub mod daily_temperatures;
 pub mod evaluate_reverse_polish_notation;
