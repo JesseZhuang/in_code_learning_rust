@@ -17,3 +17,4 @@ pub mod valid_sudoku;
 pub mod longest_palindrome_concatenating;
 pub mod max_number_of_k_sum_pairs;
 pub mod subarray_sums_divisible_by_k;
+pub mod binary_subarrays_with_sum;
