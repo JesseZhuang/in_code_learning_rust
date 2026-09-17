@@ -35,6 +35,7 @@ pub mod non_overlapping_intervals;
 pub mod game_of_life;
 pub mod gas_station;
 pub mod find_duplicate_number;
+mod find_all_duplicates;
 mod find_peak_element;
 mod find_min_rotated_sorted_array;
 pub mod subsets;
