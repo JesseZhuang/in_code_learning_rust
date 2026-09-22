@@ -48,6 +48,7 @@ pub mod first_missing_positive;
 pub mod min_arrows_burst_balloons;
 mod interval_list_intersections;
 pub mod majority_element;
+mod majority_element_ii;
 mod largest_number;
 pub mod two_sum_ii;
 mod minimize_max_of_array;
