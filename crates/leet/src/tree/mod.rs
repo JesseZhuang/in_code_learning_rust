@@ -26,3 +26,4 @@ pub mod amount_of_time_infected;
 mod add_search_word;
 mod subtree_of_another_tree;
 mod invert_bt;
+mod count_good_nodes_bt;
