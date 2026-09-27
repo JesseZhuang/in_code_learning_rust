@@ -39,3 +39,4 @@ pub mod shortest_bridge;
 pub mod reconstruct_itinerary;
 pub mod as_far_from_land;
 pub mod is_graph_bipartite;
+mod smallest_string_with_swaps;
