@@ -6,6 +6,7 @@ mod min_changes_binary_string;
 mod valid_palindrome;
 pub mod decode_string;
 pub mod words_within_two_edits;
+pub mod longest_semi_repetitive_substring;
 pub mod count_and_say;
 pub mod reverse_count_and_say;
 pub mod ascii_encoded_strings;
