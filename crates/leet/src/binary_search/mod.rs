@@ -7,3 +7,4 @@ pub mod random_pick_with_weight;
 pub mod successful_pairs;
 pub mod search_suggestions_system;
 pub mod flowers_in_full_bloom;
+pub mod minimum_operations_to_make_all_array_elements_equal;
