@@ -55,3 +55,4 @@ pub mod two_sum_ii;
 mod minimize_max_of_array;
 mod car_pooling;
 mod min_increment_unique;
+pub mod minimum_operations_to_make_array_increasing;
