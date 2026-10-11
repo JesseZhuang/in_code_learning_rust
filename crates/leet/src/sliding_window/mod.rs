@@ -1,6 +1,7 @@
 mod jump_game;
 mod jump_game_ii;
 pub mod longest_repeating_character_replacement;
+pub mod longest_subarray_of_ones_after_deleting_one_element;
 pub mod longest_substring_without_repeating;
 mod max_consecutive_ones_ii;
 mod max_sum_distinct_k;
