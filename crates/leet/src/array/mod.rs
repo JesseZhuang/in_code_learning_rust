@@ -1,4 +1,5 @@
 mod major_element;
+mod running_sum_of_1d_array;
 mod single_element_sorted_array;
 mod div_chocolate;
 mod topk_freq_elements;
