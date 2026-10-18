@@ -8,3 +8,4 @@ mod shortest_subarray_k;
 mod largest_rectangle_histogram;
 mod car_fleet;
 mod sliding_window_max;
+pub mod jump_game_vi;
