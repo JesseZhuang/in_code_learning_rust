@@ -41,3 +41,4 @@ pub mod as_far_from_land;
 pub mod is_graph_bipartite;
 pub mod shortest_alternating_paths;
 mod smallest_string_with_swaps;
+pub mod coloring_a_border;
