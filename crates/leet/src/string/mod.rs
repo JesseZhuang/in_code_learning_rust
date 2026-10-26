@@ -25,3 +25,4 @@ mod palindromic_substrings;
 pub mod minimum_remove_to_make_valid_parentheses;
 pub mod kth_distinct_string;
 pub mod remove_all_adjacent_duplicates_in_string;
+pub mod reverse_prefix_of_word;
