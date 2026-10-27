@@ -21,3 +21,4 @@ pub mod binary_subarrays_with_sum;
 pub mod sort_characters_by_frequency;
 pub mod unique_number_of_occurrences;
 pub mod determine_if_two_strings_are_close;
+pub mod find_the_difference_of_two_arrays;
