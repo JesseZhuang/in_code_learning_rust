@@ -3,6 +3,7 @@ pub mod basic_calculator_ii;
 pub mod daily_temperatures;
 pub mod evaluate_reverse_polish_notation;
 pub mod longest_valid_parentheses;
+pub mod min_swaps_balance;
 pub mod next_greater_element_ii;
 pub mod one_three_two_pattern;
 pub mod online_stock_span;
