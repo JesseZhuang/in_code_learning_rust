@@ -9,3 +9,4 @@ mod largest_rectangle_histogram;
 mod car_fleet;
 mod sliding_window_max;
 pub mod jump_game_vi;
+pub mod number_of_students_unable_to_eat_lunch;
