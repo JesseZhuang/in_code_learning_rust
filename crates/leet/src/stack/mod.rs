@@ -1,5 +1,6 @@
 pub mod basic_calculator;
 pub mod basic_calculator_ii;
+pub mod check_if_word_is_valid_after_substitutions;
 pub mod daily_temperatures;
 pub mod evaluate_reverse_polish_notation;
 pub mod longest_valid_parentheses;
