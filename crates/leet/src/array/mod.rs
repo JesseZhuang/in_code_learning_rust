@@ -27,6 +27,7 @@ pub mod sort_colors;
 mod defuse_bomb;
 mod minimized_max_products;
 mod find_k_closest_elements;
+pub mod partition_array_into_three_parts_with_equal_sum;
 pub mod partition_labels;
 pub mod permutations;
 mod power_k_size_subarrays;
