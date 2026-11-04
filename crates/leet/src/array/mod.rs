@@ -60,3 +60,4 @@ mod car_pooling;
 mod min_increment_unique;
 pub mod minimum_operations_to_make_array_increasing;
 pub mod equal_row_and_column_pairs;
+pub mod construct_distanced_sequence;
