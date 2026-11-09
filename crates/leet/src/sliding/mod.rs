@@ -5,3 +5,4 @@ pub mod longest_subarray_abs_diff_limit;
 mod min_window_substring;
 pub mod count_subarrays_max_k;
 mod subarray_prod_less_k;
+pub mod subarrays_with_k_distinct;
