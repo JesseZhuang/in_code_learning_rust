@@ -63,3 +63,4 @@ pub mod equal_row_and_column_pairs;
 pub mod construct_distanced_sequence;
 pub mod h_index;
 pub mod sum_of_unique_elements;
+pub mod sum_of_beauty_array;
