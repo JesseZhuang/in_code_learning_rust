@@ -1,3 +1,4 @@
+pub mod equal_substrings_within_budget;
 mod jump_game;
 mod jump_game_ii;
 pub mod longest_repeating_character_replacement;
