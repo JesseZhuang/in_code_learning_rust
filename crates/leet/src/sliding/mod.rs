@@ -3,6 +3,7 @@ pub mod fruit_into_baskets;
 pub mod max_consecutive_ones_iii;
 pub mod longest_subarray_abs_diff_limit;
 mod min_window_substring;
+pub mod minimum_operations_to_reduce_x_to_zero;
 pub mod count_subarrays_max_k;
 mod subarray_prod_less_k;
 pub mod subarrays_with_k_distinct;
