@@ -7,3 +7,4 @@ pub mod minimum_operations_to_reduce_x_to_zero;
 pub mod count_subarrays_max_k;
 mod subarray_prod_less_k;
 pub mod subarrays_with_k_distinct;
+pub mod number_of_substrings_containing_all_three_characters;
