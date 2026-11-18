@@ -1,4 +1,5 @@
 pub mod equal_substrings_within_budget;
+pub mod k_radius_subarray_averages;
 mod jump_game;
 mod jump_game_ii;
 pub mod longest_repeating_character_replacement;
