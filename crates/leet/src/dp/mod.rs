@@ -41,3 +41,4 @@ mod combination_sum_iv;
 mod diff_ways_paren;
 mod min_cost_tickets;
 mod questions_brainpower;
+pub mod check_valid_partition;
