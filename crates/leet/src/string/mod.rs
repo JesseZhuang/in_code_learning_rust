@@ -28,3 +28,5 @@ pub mod kth_distinct_string;
 pub mod remove_all_adjacent_duplicates_in_string;
 pub mod reverse_prefix_of_word;
 pub mod merge_strings_alternately;
+
+pub mod count_prefix_and_suffix_pairs_i;
