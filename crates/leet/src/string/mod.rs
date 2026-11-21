@@ -30,3 +30,4 @@ pub mod reverse_prefix_of_word;
 pub mod merge_strings_alternately;
 
 pub mod count_prefix_and_suffix_pairs_i;
+pub mod minimum_deletions_to_make_string_balanced;
