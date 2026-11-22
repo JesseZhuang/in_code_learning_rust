@@ -66,3 +66,4 @@ pub mod sum_of_unique_elements;
 pub mod sum_of_beauty_array;
 pub mod maximum_sum_queries;
 pub mod maximize_greatness;
+pub mod arithmetic_triplets;
