@@ -31,3 +31,4 @@ pub mod merge_strings_alternately;
 
 pub mod count_prefix_and_suffix_pairs_i;
 pub mod minimum_deletions_to_make_string_balanced;
+pub mod optimal_partition_of_string;
