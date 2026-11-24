@@ -87,6 +87,19 @@ mod tests {
     }
 
     #[test]
+    fn test_update_matrix_single_row_and_column_with_trailing_zero() {
+        let row = vec![vec![1, 1, 0]];
+        let expected_row = vec![vec![2, 1, 0]];
+        assert_eq!(Solution::update_matrix(row.clone()), expected_row);
+        assert_eq!(Solution2::update_matrix(row), expected_row);
+
+        let column = vec![vec![1], vec![1], vec![0]];
+        let expected_column = vec![vec![2], vec![1], vec![0]];
+        assert_eq!(Solution::update_matrix(column.clone()), expected_column);
+        assert_eq!(Solution2::update_matrix(column), expected_column);
+    }
+
+    #[test]
     fn test_bfs_example1() {
         let mat = vec![vec![0, 0, 0], vec![0, 1, 0], vec![0, 0, 0]];
         let expected = vec![vec![0, 0, 0], vec![0, 1, 0], vec![0, 0, 0]];
